@@ -4,7 +4,7 @@ import com.moflying.playground.animals.Animal;
 
 import java.util.List;
 
-public class ListPlayGroud {
+public class ListPlayground {
     private static void playList() {
         List<Animal> animalList = Animal.generateAnimalList();
         System.out.println(animalList);

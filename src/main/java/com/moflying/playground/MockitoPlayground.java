@@ -8,7 +8,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockitoTest {
+public class MockitoPlayground {
     public static void playWithMockito() {
 
         List<Animal> animalList = new ArrayList<Animal>();

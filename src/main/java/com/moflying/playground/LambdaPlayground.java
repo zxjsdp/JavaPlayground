@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Java8Lambda {
+public class LambdaPlayground {
     private static void testSorted() {
         List<Animal> animalList = Arrays.asList(
                 new Animal(2, "2", Gender.FEMAIL, Color.BLACK),

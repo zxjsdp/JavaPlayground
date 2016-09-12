@@ -3,7 +3,7 @@ package com.moflying.playground;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class LocalDateTimePlay {
+public class LocalDateTimePlayground {
     private static void playLocalDateTime() {
         LocalDate currentDate = LocalDate.parse("2016-07-28");
         // 活动开始的日期
