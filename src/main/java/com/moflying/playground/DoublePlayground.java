@@ -3,6 +3,7 @@ package com.moflying.playground;
 import com.google.common.math.DoubleMath;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,6 +34,19 @@ public class DoublePlayground {
     }
 
     /**
+     * 测试生成任意多个 NaN
+     */
+    private static void repeatNaN() {
+        Double nan = Double.NaN;
+        List<Double> nans = new ArrayList<>();
+
+        nans = Collections.nCopies(5, nan);
+
+        System.out.println(nan);
+        System.out.println(nans);
+    }
+
+    /**
      * 测试计算空 Double List 的平均值
      */
     private static void playDoubleMean() {
@@ -43,6 +57,7 @@ public class DoublePlayground {
 
     public static void main(String[] args) {
 //        playDoubleNaN();
-        playDoubleMean();
+//        playDoubleMean();
+        repeatNaN();
     }
 }
