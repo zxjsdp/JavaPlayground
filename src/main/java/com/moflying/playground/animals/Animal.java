@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Animal {
     private int id;
@@ -23,16 +25,30 @@ public class Animal {
         this.color = color;
     }
 
+    /**
+     * 产生测试 Animal List
+     *
+     * @return 测试 Animal List
+     */
     public static List<Animal> generateAnimalList() {
-        List<Animal> animalList = Arrays.asList(
+        return Arrays.asList(
                 new Animal(2, "2", Gender.FEMAIL, Color.BLACK),
                 new Animal(5, "5", Gender.FEMAIL, Color.BLACK),
                 new Animal(1, "1", Gender.FEMAIL, Color.BLACK),
                 new Animal(7, "7", Gender.FEMAIL, Color.BLACK),
                 new Animal(4, "4", Gender.FEMAIL, Color.BLACK)
         );
+    }
 
-        return animalList;
+    /**
+     * 产生测试 Animal Map
+     *
+     * @return 测试 Animal Map 数据
+     */
+    public static Map<Integer, Animal> generateAnimalMap() {
+        List<Animal> animalList = generateAnimalList();
+        return animalList.stream()
+                .collect(Collectors.toMap(Animal::getId, animal -> animal));
     }
 
     public int getId() {
