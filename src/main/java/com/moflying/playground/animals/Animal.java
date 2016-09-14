@@ -31,13 +31,14 @@ public class Animal {
      * @return 测试 Animal List
      */
     public static List<Animal> generateAnimalList() {
-        return Arrays.asList(
-                new Animal(2, "2", Gender.FEMAIL, Color.BLACK),
-                new Animal(5, "5", Gender.FEMAIL, Color.BLACK),
-                new Animal(1, "1", Gender.FEMAIL, Color.BLACK),
-                new Animal(7, "7", Gender.FEMAIL, Color.BLACK),
-                new Animal(4, "4", Gender.FEMAIL, Color.BLACK)
+        List<Animal> animalList = Arrays.asList(
+                new Animal(2, "Animal2", Gender.FEMAIL, Color.BLACK),
+                new Animal(5, "Animal5", Gender.MALE, Color.RED),
+                new Animal(1, "Animal1", Gender.FEMAIL, Color.GREEN),
+                new Animal(7, "Animal7", Gender.MALE, Color.GRAY),
+                new Animal(4, "Animal4", Gender.FEMAIL, Color.BLUE)
         );
+        return animalList;
     }
 
     /**
@@ -85,7 +86,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return String.format("Animal (ID: %d, Name: %s, Gender: %s, Color: %s)",
+        return String.format("\nAnimal    ID: %d, Name: %s, Gender: %s, Color: %s",
                 this.id, this.name, this.gender, this.color);
     }
 }
