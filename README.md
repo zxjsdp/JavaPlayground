@@ -6,6 +6,7 @@ My Java snippets and best practices, including some usages which are easily conf
 
 - [DateTimePlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/DateTimePlayground.java)
 - [DoublePlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/DoublePlayground.java)
+- [IntegerPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/IntegerPlayground.java)
 - [genericTypePlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/genericTypePlayground)
 - [LambdaPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/LambdaPlayground.java)
 - [ListPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/ListPlayground.java)
