@@ -3,6 +3,8 @@ package com.moflying.playground;
 public class IntegerPlayground {
     /**
      * 测试使用 `Integer.parseInt` 解析字符串中的 Double 值
+     *
+     * 会产生 NumberFormatException
      */
     private static void intParseDouble() {
         String num = "8.7";

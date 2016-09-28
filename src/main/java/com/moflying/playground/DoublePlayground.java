@@ -55,9 +55,23 @@ public class DoublePlayground {
         System.out.println(DoubleMath.mean(blankDoubleList));
     }
 
+    /**
+     * 测试使用 `Double.parseDouble` 及 `Double.valueOf` 解析字符串中的 Double 或 Integer 值
+     */
+    private static void doubleParse() {
+        String doubleStr = "8.72";
+        String intStr = "90";
+
+        System.out.println(Double.parseDouble(doubleStr));
+        System.out.println(Double.valueOf(doubleStr));
+        System.out.println(Double.parseDouble(intStr));
+        System.out.println(Double.valueOf(intStr));
+    }
+
     public static void main(String[] args) {
 //        playDoubleNaN();
 //        playDoubleMean();
-        repeatNaN();
+//        repeatNaN();
+        doubleParse();
     }
 }
