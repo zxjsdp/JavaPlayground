@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 
 import static java.time.temporal.ChronoUnit.SECONDS;
 
@@ -102,10 +103,23 @@ public class DateTimePlayground {
         System.out.printf("Copied LocalDate 2: %s\n", copiedLocalDateSuccess.toString());
     }
 
+    /**
+     * 获取两个日期之间间隔几天
+     */
+    private static void getDaysBetweenTwoDates() {
+        LocalDate startDate = LocalDate.now();
+        LocalDate endDate = LocalDate.now().plusDays(5);
+        System.out.printf("Start Date: %s; End Date: %s.\n", startDate, endDate);
+
+        Long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
+        System.out.printf("Days between %s and %s is %d.\n", startDate, endDate, daysBetween);
+    }
+
     public static void main(String[] args) {
-        parseDateTime();
+//        parseDateTime();
 //        getStartTimeAndEndTimeOfDay();
 //        getSecondsBetweenTwoTimes();
 //        playCopyLocalDate();
+        getDaysBetweenTwoDates();
     }
 }
