@@ -38,8 +38,38 @@ public class ListPlayground {
         System.out.println(animalArrayList);
     }
 
+    /**
+     * Improper start index & end index to get sublist of list
+     */
+    private static void getSubList() {
+        List<Animal> animalList = Animal.generateAnimalList();
+
+        System.out.println("Size of Animal list is: " + animalList.size());
+        System.out.printf(
+                "Sub List [0 - %d): %s\n",
+                animalList.size() - 1,
+                animalList.subList(0, animalList.size() - 1));
+        try {
+            System.out.printf(
+                    "Sub List [0 - %d): %s",
+                    animalList.size() + 1,
+                    animalList.subList(0, animalList.size() + 1));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e);
+        }
+
+        try {
+            System.out.printf(
+                    "Sub List [size+1 - size+2): %s",
+                    animalList.subList(animalList.size() + 1, animalList.size() + 2));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e);
+        }
+    }
+
     public static void main(String[] args) {
 //        playListHelloWorld();
-        playWithAbstractList();
+//        playWithAbstractList();
+        getSubList();
     }
 }
