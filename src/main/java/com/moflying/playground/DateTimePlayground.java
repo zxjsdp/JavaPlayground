@@ -107,12 +107,16 @@ public class DateTimePlayground {
      * 获取两个日期之间间隔几天
      */
     private static void getDaysBetweenTwoDates() {
-        LocalDate startDate = LocalDate.now();
-        LocalDate endDate = LocalDate.now().plusDays(5);
+        LocalDate startDate = LocalDate.parse("2016-10-01");
+        LocalDate endDate = LocalDate.parse("2016-10-05");
         System.out.printf("Start Date: %s; End Date: %s.\n", startDate, endDate);
 
-        Long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
-        System.out.printf("Days between %s and %s is %d.\n", startDate, endDate, daysBetween);
+        // 5
+        Long daysBetween1 = ChronoUnit.DAYS.between(startDate, endDate);
+        // -5
+        Long daysBetween2 = ChronoUnit.DAYS.between(endDate, startDate);
+        System.out.printf("Days between %s and %s is %d.\n", startDate, endDate, daysBetween1);
+        System.out.printf("Days between %s and %s is %d.\n", endDate, startDate, daysBetween2);
     }
 
     public static void main(String[] args) {
