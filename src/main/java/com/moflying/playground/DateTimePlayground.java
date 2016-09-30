@@ -9,6 +9,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.time.temporal.ChronoUnit.SECONDS;
 
@@ -119,11 +121,33 @@ public class DateTimePlayground {
         System.out.printf("Days between %s and %s is %d.\n", endDate, startDate, daysBetween2);
     }
 
+    /**
+     * 生成两个日期间的所有日期 [startDate, endDate)
+     */
+    private static void generateLocalDateWithinRange() {
+        LocalDate startDate = LocalDate.parse("2016-10-01");
+        LocalDate endDate = LocalDate.parse("2016-10-05");
+        List<LocalDate> dateWithinRange = new ArrayList<>();
+        if (null == startDate || null == endDate || !startDate.isBefore(endDate)) {
+            return;
+        }
+
+        int i = 0;
+        while (startDate.plusDays(i).isBefore(endDate)) {
+            dateWithinRange.add(startDate.plusDays(i));
+            i += 1;
+        }
+
+        // [2016-10-01, 2016-10-02, 2016-10-03, 2016-10-04]
+        System.out.println(dateWithinRange);
+    }
+
     public static void main(String[] args) {
 //        parseDateTime();
 //        getStartTimeAndEndTimeOfDay();
 //        getSecondsBetweenTwoTimes();
 //        playCopyLocalDate();
-        getDaysBetweenTwoDates();
+//        getDaysBetweenTwoDates();
+        generateLocalDateWithinRange();
     }
 }
