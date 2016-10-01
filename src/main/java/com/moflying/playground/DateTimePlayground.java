@@ -19,7 +19,12 @@ public class DateTimePlayground {
      * 从字符串中解析 LocalDateTime 的字符串格式
      *
      * 直接解析 "2016-10-01 12:09:08" 类型的字符串会抛出 DateTimeParseException。
-     * 需要制定 formatter 进行解析，或者使用 "2016-10-01T12:09:08" 的格式。
+     *
+     * 1. 使用 ISO-8601 格式（ISO_LOCAL_DATE_TIME: ISO_LOCAL_DATE + "T" + ISO_LOCAL_TIME），例如："2016-10-01T12:09:08"。
+     * 2. 指定 formatter 进行解析，例如：使用 "yyyy-MM-dd HH:mm:ss" 的 formatter 解析 "2016-10-01 12:09:08"。
+     *
+     * References:
+     * - [ISO_LOCAL_DATE_TIME](http://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html#ISO_LOCAL_DATE_TIME)
      */
     private static void parseDateTime() {
         String datetimeString1 = "2016-10-01 12:09:08";
