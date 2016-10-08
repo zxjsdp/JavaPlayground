@@ -85,6 +85,58 @@ public class MapPlayground {
     }
 
     /**
+     * 尝试遍历打印 Map 数据结构
+     */
+    static void playIterateOverMap() {
+        Map<String, String> stringToStringMap = new HashMap<>();
+        stringToStringMap.put("Key1", "Value1");
+        stringToStringMap.put("Key2", "Value2");
+        stringToStringMap.put("Key3", "Value3");
+        iterateOverMapV1(stringToStringMap);
+
+        System.out.println("--------------------");
+
+        stringToStringMap = new HashMap<>();
+        stringToStringMap.put("Key1", "Value1");
+        stringToStringMap.put("Key2", "Value2");
+        stringToStringMap.put("Key3", "Value3");
+        iterateOverMapV2(stringToStringMap);
+    }
+
+    /**
+     * 遍历 Map 数据结构并打印（方法一）
+     *
+     * References:
+     *   - http://stackoverflow.com/questions/1066589/iterate-through-a-hashmap
+     *   - http://stackoverflow.com/questions/46898/how-to-efficiently-iterate-over-each-entry-in-a-map
+     *
+     * @param map Map 数据结构
+     */
+    static void iterateOverMapV1(Map<String, String> map) {
+        Iterator iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry pair = (Map.Entry)iterator.next();
+            System.out.println(pair.getKey() + ": " + pair.getValue());
+            iterator.remove();  // avoids a ConcurrentModificationException
+        }
+    }
+
+    /**
+     * 遍历 Map 数据结构并打印（方法二）
+     *
+     * References:
+     *   - http://stackoverflow.com/questions/1066589/iterate-through-a-hashmap
+     *   - http://stackoverflow.com/questions/46898/how-to-efficiently-iterate-over-each-entry-in-a-map
+     *
+     * @param map Map 数据结构
+     */
+    static void iterateOverMapV2(Map<String, String> map) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+
+    /**
      * Java Map Hello World Example
      */
     static void playMapHelloWorld() {
@@ -100,6 +152,7 @@ public class MapPlayground {
     public static void main(String[] args) {
 //        playMapHelloWorld();
 //        playListToMapWithTraditionalWay();
-        playListToMapWithLambda();
+//        playListToMapWithLambda();
+        playIterateOverMap();
     }
 }
