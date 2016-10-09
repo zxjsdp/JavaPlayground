@@ -2,10 +2,10 @@ package com.moflying.playground;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.moflying.playground.animals.Animal;
+import com.moflying.playground.entities.FoodSalesInfo;
 import com.moflying.playground.utils.JsonUtil;
 import com.moflying.playground.utils.StringUtil;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,31 +45,31 @@ public class JsonPlayground {
      *
      * @return List 结构体
      */
-    private static void parseJsonList() {
+    private static void parseJsonList1() {
         String jsonListString =
                 "[{\"id\":3,\"name\":\"cat\",\"gender\":\"FEMAIL\",\"color\":\"YELLOW\"}," +
                         "{\"id\":5,\"name\":\"dog\",\"gender\":\"MAIL\",\"color\":\"BLACK\"}]";
 
-        List<Animal> animalList = parseListFromJson(jsonListString, Animal.class);
+        List<Animal> animalList = JsonUtil.readList(jsonListString, Animal.class);
         System.out.println(animalList);
     }
 
-    /**
-     * 从 JSON 字符串中提取 List 数据结构
-     * @param listStringJson 包含 List 数据结构的 JSON 字符串
-     * @return List 数据结构
-     */
-    private static <T> List<T> parseListFromJson(String listStringJson, Class<T> type) {
-        List<T> tList = new ArrayList<T>();
-        if (StringUtil.isEmpty(listStringJson)) {
-            return tList;
-        }
-        TypeReference<List<T>> typeReference = new TypeReference<List<T>>() {};
-        return JsonUtil.read(listStringJson, typeReference);
+    private static void parseJsonList2() {
+        String foodBasicVolumnInfoJSON =
+                "[{\"foodId\":\"111111\",\"foodName\":\"糖醋里脊\",\"totalSalesVolumn\":\"17\"}," +
+                        "{\"foodId\":\"222222\",\"foodName\":\"宫保鸡丁\",\"totalSalesVolumn\":\"34\"}]";
+
+        List<FoodSalesInfo> foodBasicVolumnInfoList =
+                JsonUtil.readList(foodBasicVolumnInfoJSON, FoodSalesInfo.class);
+
+        System.out.println(foodBasicVolumnInfoList);
     }
+
 
     public static void main(String[] args) {
 //        parseJsonMap();
-        parseJsonList();
+//        parseJsonList1();
+        parseJsonList2();
     }
 }
+

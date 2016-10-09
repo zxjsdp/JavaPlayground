@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JsonUtil {
     private static ObjectMapper mapper = new ObjectMapper();
@@ -44,6 +46,20 @@ public class JsonUtil {
         } catch (IOException ex) {
             throw new IllegalStateException(String.format("Cannot convert json string to [%s]", typeReference));
         }
+    }
+
+    /**
+     * 从 JSON 字符串中提取 List 数据结构
+     * @param listStringJson 包含 List 数据结构的 JSON 字符串
+     * @return List 数据结构
+     */
+    public static <T> List<T> readList(String listStringJson, Class<T> type) {
+        List<T> tList = new ArrayList<T>();
+        if (StringUtil.isEmpty(listStringJson)) {
+            return tList;
+        }
+        TypeReference<List<T>> typeReference = new TypeReference<List<T>>() {};
+        return JsonUtil.read(listStringJson, typeReference);
     }
 
     public static String write(Object object) {
