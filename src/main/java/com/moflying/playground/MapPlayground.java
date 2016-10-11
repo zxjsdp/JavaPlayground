@@ -81,6 +81,8 @@ public class MapPlayground {
     static void playGetNonExistKey() {
         Map<Integer, Animal> animalMap = new HashMap<>();
 
+        // Return null if this map contains no mapping for the key
+        // Result: null
         System.out.println(animalMap.get(3));
     }
 
@@ -153,6 +155,7 @@ public class MapPlayground {
 //        playMapHelloWorld();
 //        playListToMapWithTraditionalWay();
 //        playListToMapWithLambda();
+//        playGetNonExistKey();
         playIterateOverMap();
     }
 }
