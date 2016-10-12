@@ -90,6 +90,10 @@ public class MapPlayground {
      * 尝试遍历打印 Map 数据结构
      */
     static void playIterateOverMap() {
+        // result:
+        // Key2: Value2
+        // Key1: Value1
+        // Key3: Value3
         Map<String, String> stringToStringMap = new HashMap<>();
         stringToStringMap.put("Key1", "Value1");
         stringToStringMap.put("Key2", "Value2");
@@ -98,6 +102,10 @@ public class MapPlayground {
 
         System.out.println("--------------------");
 
+        // result:
+        // Key2: Value2
+        // Key1: Value1
+        // Key3: Value3
         stringToStringMap = new HashMap<>();
         stringToStringMap.put("Key1", "Value1");
         stringToStringMap.put("Key2", "Value2");
@@ -145,17 +153,21 @@ public class MapPlayground {
         Map<Integer, Animal> animalMap = new HashMap();
         animalMap = Animal.generateAnimalMap();
 
+        // result: true
         System.out.println(animalMap.containsKey(1));
+        // result: false
         System.out.println(animalMap.containsKey(10));
+        // result: Animal    ID: 1, Name: Animal1, Gender: FEMAIL, Color: 0x008000ff
         System.out.println(animalMap.get(1));
+        // result: null
         System.out.println(animalMap.get(10));
     }
 
     public static void main(String[] args) {
-//        playMapHelloWorld();
+        playMapHelloWorld();
 //        playListToMapWithTraditionalWay();
 //        playListToMapWithLambda();
 //        playGetNonExistKey();
-        playIterateOverMap();
+//        playIterateOverMap();
     }
 }
