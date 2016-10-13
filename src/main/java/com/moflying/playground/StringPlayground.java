@@ -40,15 +40,35 @@ public class StringPlayground {
         return charsPresent.size() > 0;
     }
 
+    /**
+     * Display the String representation of Boolean true
+     *
+     * Result: "true"
+     */
     private static void stringValueOf() {
+        // true
         System.out.println(String.valueOf(true));
+        // class java.lang.String
         System.out.println(String.valueOf(true).getClass());
+    }
+
+    /**
+     * Try use null as parameter of String.format
+     *
+     * Result: display null
+     */
+    private static void playStringFormatNullParameter() {
+        // This is null parameter: null
+        System.out.println(
+                String.format("This is null parameter: %s", null)
+        );
     }
 
     public static void main(String[] args) {
 //        stringToCharListPlayground();
 //        System.out.println(stringContainsAnyChar(STRING_TO_CHECK, SPECIAL_CHARS));
 //        System.out.println(stringContainsAnyChar(STRING_TO_CHECK, "*%$ "));
-        stringValueOf();
+//        stringValueOf();
+        playStringFormatNullParameter();
     }
 }
