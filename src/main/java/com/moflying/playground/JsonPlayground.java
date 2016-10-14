@@ -65,11 +65,41 @@ public class JsonPlayground {
         System.out.println(foodBasicVolumnInfoList);
     }
 
+    /**
+     * - There will be an error if content of json is object but we want to parse list of object
+     * - There will be an error if content of json is blank list of object but we want to parse object
+     */
+    private static void playParseListOrObject() {
+        TypeReference<List<Animal>> typeReference =
+                new TypeReference<List<Animal>>() {};
+
+        // Parse list of object from "[]"
+        // Result 1:
+        //     []
+        List<Animal> animalList = JsonUtil.read("[]", typeReference);
+        System.out.println("Result 1: " + JsonUtil.write(animalList));
+
+        // Cannot parse list of object from "{}"
+        // Result 2:
+        //     java.lang.IllegalStateException:
+        //         Cannot convert json string to [com.moflying.playground.JsonPlayground$2@224edc67]
+        try {
+            List<Animal> animalList2 = JsonUtil.read("{}", typeReference);
+        } catch (IllegalStateException e) {
+            System.out.println("Result 2: " + e);
+        }
+
+        // Parse object from "{}"
+        // Result 3:
+        //     {"id":0,"name":null,"gender":null,"color":null}
+        Animal animal = JsonUtil.read("{}", Animal.class);
+        System.out.println("Result 3: " + JsonUtil.write(animal));
+    }
 
     public static void main(String[] args) {
 //        parseJsonMap();
 //        parseJsonList1();
-        parseJsonList2();
+//        parseJsonList2();
+        playParseListOrObject();
     }
 }
-
