@@ -13,12 +13,15 @@ import java.util.Map;
 public class JsonPlayground {
     /**
      * 从包含 Map 数据结构的 Json 字符串中，提取出 Map 结构体
-     *
-     * @return Map 结构体
      */
     private static void parseJsonMap() {
         String jsonMapString =
                 "{\"2016-10-01\": \"30\",\"2016-10-02\":\"51\",\"2016-10-03\":\"68\"}";
+
+        // Result:
+        //     2016-10-01: 30
+        //     2016-10-02: 51
+        //     2016-10-03: 68
         MapPlayground.iterateOverMapV1(parseMapFromJson(jsonMapString));
     }
 
@@ -42,34 +45,42 @@ public class JsonPlayground {
 
     /**
      * 从包含 List 数据结构的 Json 字符串中，提取出 List 结构体
-     *
-     * @return List 结构体
      */
     private static void parseJsonList1() {
         String jsonListString =
-                "[{\"id\":3,\"name\":\"cat\",\"gender\":\"FEMAIL\",\"color\":\"YELLOW\"}," +
+                "[{\"id\":3,\"name\":\"cat\",\"gender\":\"FEMALE\",\"color\":\"YELLOW\"}," +
                         "{\"id\":5,\"name\":\"dog\",\"gender\":\"MAIL\",\"color\":\"BLACK\"}]";
 
         List<Animal> animalList = JsonUtil.readList(jsonListString, Animal.class);
+        // Result:
+        //     [{id=3, name=cat, gender=FEMALE, color=YELLOW}, {id=5, name=dog, gender=MAIL, color=BLACK}]
         System.out.println(animalList);
     }
 
+    /**
+     * 尝试通过从 JSON 字符串中解析对象列表
+     */
     private static void parseJsonList2() {
-        String foodBasicVolumnInfoJSON =
-                "[{\"foodId\":\"111111\",\"foodName\":\"糖醋里脊\",\"totalSalesVolumn\":\"17\"}," +
-                        "{\"foodId\":\"222222\",\"foodName\":\"宫保鸡丁\",\"totalSalesVolumn\":\"34\"}]";
+        String foodBasicVolumeInfoJSON =
+                "[{\"foodId\":\"111111\",\"foodName\":\"糖醋里脊\",\"totalSalesVolume\":\"17\"}," +
+                        "{\"foodId\":\"222222\",\"foodName\":\"宫保鸡丁\",\"totalSalesVolume\":\"34\"}]";
 
-        List<FoodSalesInfo> foodBasicVolumnInfoList =
-                JsonUtil.readList(foodBasicVolumnInfoJSON, FoodSalesInfo.class);
+        List<FoodSalesInfo> foodBasicVolumeInfoList =
+                JsonUtil.readList(foodBasicVolumeInfoJSON, FoodSalesInfo.class);
 
-        System.out.println(foodBasicVolumnInfoList);
+        // Result:
+        //     [{foodId=111111, foodName=糖醋里脊, totalSalesVolume=17},
+        //      {foodId=222222, foodName=宫保鸡丁, totalSalesVolume=34}]
+        System.out.println(foodBasicVolumeInfoList);
     }
 
     /**
-     * - There will be an error if content of json is object but we want to parse list of object
-     * - There will be an error if content of json is blank list of object but we want to parse object
+     * 尝试从 JSON 字符串中解析空对象列表（及 JSON 字符串为空对象时报错的情况）
+     *
+     * - Error if content of json is object but we want to parse list of object
+     * - Error if content of json is blank list of object but we want to parse object
      */
-    private static void playParseListOrObject() {
+    private static void playParseEmptyListOrObject() {
         TypeReference<List<Animal>> typeReference =
                 new TypeReference<List<Animal>>() {};
 
@@ -100,6 +111,6 @@ public class JsonPlayground {
 //        parseJsonMap();
 //        parseJsonList1();
 //        parseJsonList2();
-        playParseListOrObject();
+        playParseEmptyListOrObject();
     }
 }
