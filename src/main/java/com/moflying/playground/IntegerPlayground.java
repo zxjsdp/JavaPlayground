@@ -6,17 +6,21 @@ public class IntegerPlayground {
      *
      * 会产生 NumberFormatException
      */
-    private static void intParseDouble() {
+    private static void tryToParseIntFromDoubleStr() {
         String num = "8.7";
         try {
             System.out.println(Integer.parseInt(num));
         } catch (NumberFormatException e) {
+            // Result:
+            //     java.lang.NumberFormatException: For input string: "8.7"
             System.out.println(e);
+            // Result:
+            //     8.7
             System.out.println(Double.parseDouble(num));
         }
     }
 
     public static void main(String[] args) {
-        intParseDouble();
+        tryToParseIntFromDoubleStr();
     }
 }
