@@ -2,6 +2,7 @@ package com.moflying.playground;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class SetPlayground {
@@ -16,7 +17,24 @@ public class SetPlayground {
         System.out.println(numberSet.contains(4));
     }
 
+    /**
+     * 尝试从 null 的 List 初始化 Set
+     *
+     * Result:
+     *     NullPointerException
+     */
+    private static void initSetFromNullList() {
+        List<Integer> nullList = null;
+
+        try {
+            Set<Integer> nullSet = new HashSet<>(nullList);
+        } catch (NullPointerException e) {
+            System.out.println(e);
+        }
+    }
+
     public static void main(String[] args) {
-        initializeSetFromArray();
+//        initializeSetFromArray();
+        initSetFromNullList();
     }
 }
