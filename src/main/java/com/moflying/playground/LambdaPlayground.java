@@ -24,6 +24,55 @@ public class LambdaPlayground {
         System.out.println(animalList);
     }
 
+    private static void sortByBooleanField() {
+        class TrueAnimal extends Animal {
+            private Boolean isTrueAnimal;
+
+            public TrueAnimal(int id, String name, Gender gender, Color color, Boolean isTrueAnimal) {
+                super(id, name, gender, color);
+                this.isTrueAnimal = isTrueAnimal;
+            }
+
+            public Boolean getTrueAnimal() {
+                return isTrueAnimal;
+            }
+
+            public void setTrueAnimal(Boolean trueAnimal) {
+                isTrueAnimal = trueAnimal;
+            }
+
+            @Override
+            public String toString() {
+                return "\n" + "TrueAnimal: " + this.getTrueAnimal();
+            }
+        }
+
+        List<TrueAnimal> animalList = Arrays.asList(
+                new TrueAnimal(0, "0", Gender.FEMAIL, Color.ALICEBLUE, true),
+                new TrueAnimal(1, "1", Gender.FEMAIL, Color.AQUA, false),
+                new TrueAnimal(2, "2", Gender.MALE, Color.BISQUE, true),
+                new TrueAnimal(3, "3", Gender.MALE, Color.RED, false));
+
+        // [TrueAnimal: false,
+        //  TrueAnimal: false,
+        //  TrueAnimal: true,
+        //  TrueAnimal: true]
+        List<TrueAnimal> falseAnimalsFirstList = animalList.stream()
+                .sorted((a1, a2) -> Boolean.compare(a1.getTrueAnimal(), a2.getTrueAnimal()))
+                .collect(Collectors.toList());
+
+        // [TrueAnimal: true,
+        //  TrueAnimal: true,
+        //  TrueAnimal: false,
+        //  TrueAnimal: false]
+        List<TrueAnimal> trueAnimalsFirstList = animalList.stream()
+                .sorted((a1, a2) -> Boolean.compare(a2.getTrueAnimal(), a1.getTrueAnimal()))
+                .collect(Collectors.toList());
+
+        System.out.println(falseAnimalsFirstList);
+        System.out.println(trueAnimalsFirstList);
+    }
+
     /**
      * 使用 Lambda 表达式，根据结构体中的 ID 字段去重
      */
@@ -42,6 +91,7 @@ public class LambdaPlayground {
 
     public static void main(String[] args) {
 //        sortWithLambdaExpression();
-        uniquifyListByIdWithLambda();
+//        uniquifyListByIdWithLambda();
+        sortByBooleanField();
     }
 }
