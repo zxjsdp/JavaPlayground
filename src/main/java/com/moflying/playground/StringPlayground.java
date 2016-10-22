@@ -64,11 +64,24 @@ public class StringPlayground {
         );
     }
 
+    /**
+     * 字符串比较
+     */
+    private static void playStringComparison() {
+        String str1 = "活动时间冲突";
+        String str2 = "活动时间冲突";
+
+        System.out.println(str1.equals(str2));
+        System.out.println(str1 == str2);
+    }
+
+
     public static void main(String[] args) {
 //        stringToCharListPlayground();
 //        System.out.println(stringContainsAnyChar(STRING_TO_CHECK, SPECIAL_CHARS));
 //        System.out.println(stringContainsAnyChar(STRING_TO_CHECK, "*%$ "));
 //        stringValueOf();
-        playStringFormatNullParameter();
+//        playStringFormatNullParameter();
+        playStringComparison();
     }
 }
