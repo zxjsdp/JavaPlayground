@@ -71,7 +71,11 @@ public class StringPlayground {
         String str1 = "活动时间冲突";
         String str2 = "活动时间冲突";
 
+        // Recommended for String comparison
+        //     Result: true
         System.out.println(str1.equals(str2));
+        // Not recommended for String comparison, although it works
+        //     Result: true
         System.out.println(str1 == str2);
     }
 
