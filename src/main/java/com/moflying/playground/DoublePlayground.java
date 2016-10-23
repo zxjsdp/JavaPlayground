@@ -34,9 +34,24 @@ public class DoublePlayground {
     }
 
     /**
+     * 测试计算空 Double List 的平均值
+     */
+    private static void playDoubleMean() {
+        List<Double> blankDoubleList = new ArrayList<>();
+
+        // Result:
+        //     java.lang.IllegalArgumentException: Cannot take mean of 0 values
+        try {
+            System.out.println(DoubleMath.mean(blankDoubleList));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+        }
+    }
+
+    /**
      * 测试生成任意多个 NaN
      */
-    private static void repeatNaN() {
+    private static void playNaNRepeating() {
         Double nan = Double.NaN;
         List<Double> nans = new ArrayList<>();
 
@@ -47,31 +62,39 @@ public class DoublePlayground {
     }
 
     /**
-     * 测试计算空 Double List 的平均值
-     */
-    private static void playDoubleMean() {
-        List<Double> blankDoubleList = new ArrayList<>();
-        // Should be: java.lang.IllegalArgumentException: Cannot take mean of 0 values
-        System.out.println(DoubleMath.mean(blankDoubleList));
-    }
-
-    /**
      * 测试使用 `Double.parseDouble` 及 `Double.valueOf` 解析字符串中的 Double 或 Integer 值
      */
-    private static void doubleParse() {
+    private static void playParseDouble() {
         String doubleStr = "8.72";
         String intStr = "90";
 
+        // Result: 8.72
         System.out.println(Double.parseDouble(doubleStr));
+        // Result: 8.72
         System.out.println(Double.valueOf(doubleStr));
+        // Result: 90.0
         System.out.println(Double.parseDouble(intStr));
+        // Result: 90.0
         System.out.println(Double.valueOf(intStr));
+    }
+
+    /**
+     * Display Double value in formatted string.
+     */
+    private static void playFormatDoubleInString() {
+        Double money = 8.372815;
+
+        // Result: Money is $8.37.
+        String moneyString = String.format("Money is $%.2f.", money);
+
+        System.out.println(moneyString);
     }
 
     public static void main(String[] args) {
 //        playDoubleNaN();
 //        playDoubleMean();
-//        repeatNaN();
-        doubleParse();
+//        playNaNRepeating();
+//        playParseDouble();
+        playFormatDoubleInString();
     }
 }
