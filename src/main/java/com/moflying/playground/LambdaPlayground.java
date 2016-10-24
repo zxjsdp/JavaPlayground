@@ -9,6 +9,19 @@ import java.util.stream.Collectors;
 
 public class LambdaPlayground {
     /**
+     * Extract list of specific fields from list of objects with lambda map
+     */
+    private static void playExtractListOfFieldFromListOfStruct() {
+        List<Animal> animalList = Animal.generateAnimalList();
+
+        List<Gender> animalGender = animalList.stream()
+                .map(Animal::getGender)
+                .collect(Collectors.toList());
+
+        System.out.println(animalGender);
+    }
+
+    /**
      * 使用 Lambda 表达式，基于结构体中的某个字段进行排序
      */
     private static void sortWithLambdaExpression() {
@@ -90,8 +103,9 @@ public class LambdaPlayground {
     }
 
     public static void main(String[] args) {
+        playExtractListOfFieldFromListOfStruct();
 //        sortWithLambdaExpression();
 //        uniquifyListByIdWithLambda();
-        sortByBooleanField();
+//        sortByBooleanField();
     }
 }
