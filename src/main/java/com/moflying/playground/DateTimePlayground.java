@@ -147,12 +147,26 @@ public class DateTimePlayground {
         System.out.println(dateWithinRange);
     }
 
+    /**
+     * 将 LocalDateTime 类型转换为 LocalDate 或者 LocalTime
+     */
+    private static void localDateTimeToLocalDateOrLocalTime() {
+        LocalDateTime now = LocalDateTime.now();
+
+        LocalDate date = now.toLocalDate();
+        LocalTime time = now.toLocalTime();
+
+        System.out.println(date);
+        System.out.println(time);
+    }
+
     public static void main(String[] args) {
 //        parseDateTime();
 //        getStartTimeAndEndTimeOfDay();
 //        getSecondsBetweenTwoTimes();
 //        playCopyLocalDate();
 //        getDaysBetweenTwoDates();
-        generateLocalDateWithinRange();
+//        generateLocalDateWithinRange();
+        localDateTimeToLocalDateOrLocalTime();
     }
 }
