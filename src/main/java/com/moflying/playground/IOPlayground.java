@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IOPlayground {
-    private static final String relativeFilePath = "src/main/java/com/moflying/playground/ids.txt";
+    private static final String relativeFilePath = "src/main/resources/ids.txt";
 
     private static List<String> playReadAllLinesFromFile() {
         try {
