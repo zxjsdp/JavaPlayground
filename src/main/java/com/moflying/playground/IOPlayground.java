@@ -11,7 +11,12 @@ import java.util.List;
 public class IOPlayground {
     private static final String relativeFilePath = "src/main/resources/ids.txt";
 
-    private static List<String> playReadAllLinesFromFile() {
+    /**
+     * 从文件中一次性读取所有行
+     *
+     * @return 文件中所有行的列表
+     */
+    private static List<String> readAllLinesFromFile() {
         try {
             URI uri = Paths.get(PathPlayground.getWorkingDir(), relativeFilePath).toUri();
             return Files.readAllLines(Paths.get(uri), Charset.defaultCharset());
@@ -22,6 +27,6 @@ public class IOPlayground {
     }
 
     public static void main(String[] args) {
-        System.out.println(playReadAllLinesFromFile().size());
+        System.out.println(readAllLinesFromFile().size());
     }
 }
