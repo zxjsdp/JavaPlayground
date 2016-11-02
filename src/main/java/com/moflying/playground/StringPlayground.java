@@ -79,22 +79,15 @@ public class StringPlayground {
         System.out.println(str1 == str2);
     }
 
-    private static void stringParsing() {
-        String localTypeString = "忠诚顾客(近30天时间内下单大于等于5单的用户)";
-        String lostTypeString = "流失顾客(除新用户外，近30天时间内下单小于等于1单的用户)";
-        String ordinaryTypeString = "普通顾客(近30天时间内下单2单-4单的用户)";
-        String cuetomizedTypeStringA = "自定义顾客(近60天时间内下单小于等于5单的用户)";
-        String cuetomizedTypeStringB = "自定义顾客(近60天时间内下单大于等于5单的用户)";
-        String cuetomizedTypeStringC = "自定义顾客(近60天时间内下单3单 - 6单的用户";
+    /**
+     * 检测字符串是否包含某个子字符串
+     */
+    private static void stringContains() {
+        String localTypeString = "这30张洁白的纸上有从-10到20的数字";
 
-        System.out.println(localTypeString.contains("忠诚顾客"));
-        System.out.println(lostTypeString.contains("忠诚顾客"));
-        System.out.println(ordinaryTypeString.contains("忠诚顾客"));
-        System.out.println(cuetomizedTypeStringA.contains("忠诚顾客"));
-        System.out.println(cuetomizedTypeStringB.contains("忠诚顾客"));
-        System.out.println(cuetomizedTypeStringC.contains("忠诚顾客"));
+        System.out.println(localTypeString.contains("洁白"));
+        System.out.println(localTypeString.contains("洁白如雪"));
     }
-
 
     public static void main(String[] args) {
 //        stringToCharListPlayground();
@@ -103,6 +96,6 @@ public class StringPlayground {
 //        stringValueOf();
 //        playStringFormatNullParameter();
 //        playStringComparison();
-        stringParsing();
+        stringContains();
     }
 }
