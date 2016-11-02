@@ -79,6 +79,22 @@ public class StringPlayground {
         System.out.println(str1 == str2);
     }
 
+    private static void stringParsing() {
+        String localTypeString = "忠诚顾客(近30天时间内下单大于等于5单的用户)";
+        String lostTypeString = "流失顾客(除新用户外，近30天时间内下单小于等于1单的用户)";
+        String ordinaryTypeString = "普通顾客(近30天时间内下单2单-4单的用户)";
+        String cuetomizedTypeStringA = "自定义顾客(近60天时间内下单小于等于5单的用户)";
+        String cuetomizedTypeStringB = "自定义顾客(近60天时间内下单大于等于5单的用户)";
+        String cuetomizedTypeStringC = "自定义顾客(近60天时间内下单3单 - 6单的用户";
+
+        System.out.println(localTypeString.contains("忠诚顾客"));
+        System.out.println(lostTypeString.contains("忠诚顾客"));
+        System.out.println(ordinaryTypeString.contains("忠诚顾客"));
+        System.out.println(cuetomizedTypeStringA.contains("忠诚顾客"));
+        System.out.println(cuetomizedTypeStringB.contains("忠诚顾客"));
+        System.out.println(cuetomizedTypeStringC.contains("忠诚顾客"));
+    }
+
 
     public static void main(String[] args) {
 //        stringToCharListPlayground();
@@ -86,6 +102,7 @@ public class StringPlayground {
 //        System.out.println(stringContainsAnyChar(STRING_TO_CHECK, "*%$ "));
 //        stringValueOf();
 //        playStringFormatNullParameter();
-        playStringComparison();
+//        playStringComparison();
+        stringParsing();
     }
 }
