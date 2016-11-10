@@ -3,6 +3,7 @@ package com.moflying.playground;
 import com.moflying.playground.animals.Animal;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ListPlayground {
@@ -67,9 +68,30 @@ public class ListPlayground {
         }
     }
 
+    /**
+     * List intersection
+     */
+    private static void playListIntersection() {
+        List<Integer> listA = Arrays.asList(1, 2, 3, 4);
+        List<Integer> listB = Arrays.asList(3, 4, 5, 6, 7);
+
+        List<Integer> out1 = new ArrayList<>(listA);
+        out1.removeAll(listB);
+        System.out.println(out1);
+
+        List<Integer> out2 = new ArrayList<>(listB);
+        out2.removeAll(listA);
+        System.out.println(out2);
+
+        List<Integer> out3 = new ArrayList<>(listA);
+        out3.removeAll(listA);
+        System.out.println(out3);
+    }
+
     public static void main(String[] args) {
 //        playListHelloWorld();
 //        playWithAbstractList();
-        getSubList();
+//        getSubList();
+        playListIntersection();
     }
 }
