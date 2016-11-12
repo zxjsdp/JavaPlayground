@@ -163,11 +163,26 @@ public class MapPlayground {
         System.out.println(animalMap.get(10));
     }
 
+    /**
+     * put duplicate key to map
+     * Result:
+     *     - Replace value with new one
+     */
+    private static void playPutDuplicateKeyToMap() {
+        Map<Integer, String> aMap = new HashMap<>();
+        aMap.put(1, "Hello");
+        aMap.put(1, "World");
+
+        // Result: {1=World}
+        System.out.println(aMap);
+    }
+
     public static void main(String[] args) {
-        playMapHelloWorld();
+//        playMapHelloWorld();
 //        playListToMapWithTraditionalWay();
 //        playListToMapWithLambda();
 //        playGetNonExistKey();
 //        playIterateOverMap();
+        playPutDuplicateKeyToMap();
     }
 }
