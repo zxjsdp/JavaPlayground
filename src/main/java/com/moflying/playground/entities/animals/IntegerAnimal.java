@@ -2,13 +2,13 @@ package com.moflying.playground.entities.animals;
 
 import java.util.List;
 
-public class AnimalWithNumber {
+public class IntegerAnimal {
     private Integer number;
     private List<Animal> animalList;
 
-    public AnimalWithNumber() {}
+    public IntegerAnimal() {}
 
-    public AnimalWithNumber(Integer number, List<Animal> animalList) {
+    public IntegerAnimal(Integer number, List<Animal> animalList) {
         this.number = number;
         this.animalList = animalList;
     }

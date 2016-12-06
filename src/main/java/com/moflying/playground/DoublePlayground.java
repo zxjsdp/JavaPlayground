@@ -1,10 +1,9 @@
 package com.moflying.playground;
 
 import com.google.common.math.DoubleMath;
+import com.moflying.playground.entities.animals.DoubleAnimal;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class DoublePlayground {
@@ -90,11 +89,36 @@ public class DoublePlayground {
         System.out.println(moneyString);
     }
 
+    /**
+     * 使用 Comparator.comparingDouble 来根据结构体中的 Double 字段进行排序
+     */
+    private static void sortDoubleWithComparitors() {
+        List<DoubleAnimal> doubleAnimalList = Arrays.asList(
+                new DoubleAnimal(3.5),
+                new DoubleAnimal(6.7),
+                new DoubleAnimal(2.3),
+                new DoubleAnimal(7.9)
+        );
+
+        List<DoubleAnimal> sortedDoubleAnimal = doubleAnimalList.stream()
+                .sorted(Comparator.comparingDouble(DoubleAnimal::getDoubleValue))
+                .collect(Collectors.toList());
+
+        // [
+        //     DoubleAnimal{doubleValue=2.3},
+        //     DoubleAnimal{doubleValue=3.5},
+        //     DoubleAnimal{doubleValue=6.7},
+        //     DoubleAnimal{doubleValue=7.9}
+        // ]
+        System.out.println(sortedDoubleAnimal);
+    }
+
     public static void main(String[] args) {
 //        playDoubleNaN();
 //        playDoubleMean();
 //        playNaNRepeating();
 //        playParseDouble();
-        playFormatDoubleInString();
+//        playFormatDoubleInString();
+        sortDoubleWithComparitors();
     }
 }

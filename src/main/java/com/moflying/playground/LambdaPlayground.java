@@ -1,9 +1,9 @@
 package com.moflying.playground;
 
-import com.moflying.playground.entities.animals.Animal;
-import com.moflying.playground.entities.animals.AnimalWithNumber;
-import com.moflying.playground.entities.animals.TrueAnimal;
 import com.moflying.playground.entities.Gender;
+import com.moflying.playground.entities.animals.Animal;
+import com.moflying.playground.entities.animals.BooleanAnimal;
+import com.moflying.playground.entities.animals.IntegerAnimal;
 import javafx.scene.paint.Color;
 
 import java.util.*;
@@ -43,34 +43,34 @@ public class LambdaPlayground {
      * 根据结构体中布尔型字段排序的顺序
      */
     private static void sortByBooleanField() {
-        List<TrueAnimal> animalList = Arrays.asList(
-                new TrueAnimal(0, "0", Gender.FEMAIL, Color.ALICEBLUE, true),
-                new TrueAnimal(1, "1", Gender.FEMAIL, Color.AQUA, false),
-                new TrueAnimal(2, "2", Gender.MALE, Color.BISQUE, true),
-                new TrueAnimal(3, "3", Gender.MALE, Color.RED, false));
+        List<BooleanAnimal> animalList = Arrays.asList(
+                new BooleanAnimal(true),
+                new BooleanAnimal(false),
+                new BooleanAnimal(true),
+                new BooleanAnimal(false));
 
-        // [TrueAnimal: false,
-        //  TrueAnimal: false,
-        //  TrueAnimal: true,
-        //  TrueAnimal: true]
-        List<TrueAnimal> falseAnimalsFirstList1 = animalList.stream()
-                .sorted((a1, a2) -> Boolean.compare(a1.getTrueAnimal(), a2.getTrueAnimal()))
+        // [BooleanAnimal: false,
+        //  BooleanAnimal: false,
+        //  BooleanAnimal: true,
+        //  BooleanAnimal: true]
+        List<BooleanAnimal> falseAnimalsFirstList1 = animalList.stream()
+                .sorted((a1, a2) -> Boolean.compare(a1.getBoolValue(), a2.getBoolValue()))
                 .collect(Collectors.toList());
 
-        // [TrueAnimal: false,
-        //  TrueAnimal: false,
-        //  TrueAnimal: true,
-        //  TrueAnimal: true]
-        List<TrueAnimal> falseAnimalsFirstList2 = animalList.stream()
-                .sorted(Comparator.comparing(TrueAnimal::getTrueAnimal))
+        // [BooleanAnimal: false,
+        //  BooleanAnimal: false,
+        //  BooleanAnimal: true,
+        //  BooleanAnimal: true]
+        List<BooleanAnimal> falseAnimalsFirstList2 = animalList.stream()
+                .sorted(Comparator.comparing(BooleanAnimal::getBoolValue))
                 .collect(Collectors.toList());
 
         // [TrueAnimal: true,
         //  TrueAnimal: true,
         //  TrueAnimal: false,
         //  TrueAnimal: false]
-        List<TrueAnimal> trueAnimalsFirstList = animalList.stream()
-                .sorted((a1, a2) -> Boolean.compare(a2.getTrueAnimal(), a1.getTrueAnimal()))
+        List<BooleanAnimal> trueAnimalsFirstList = animalList.stream()
+                .sorted((a1, a2) -> Boolean.compare(a2.getBoolValue(), a1.getBoolValue()))
                 .collect(Collectors.toList());
 
         System.out.println(falseAnimalsFirstList1);
@@ -98,15 +98,15 @@ public class LambdaPlayground {
      * 获取结构体中某个列表类型对象的列表数目
      */
     private static void countSublistInList() {
-        List<AnimalWithNumber> animalWithNumberList = new ArrayList<>();
-        animalWithNumberList.add(new AnimalWithNumber(0, Animal.generateAnimalList()));
-        animalWithNumberList.add(new AnimalWithNumber(0, Animal.generateAnimalList()));
-        animalWithNumberList.add(new AnimalWithNumber(0, Animal.generateAnimalList()));
-        animalWithNumberList.add(new AnimalWithNumber(0, Animal.generateAnimalList()));
+        List<IntegerAnimal> animalWithNumberList = new ArrayList<>();
+        animalWithNumberList.add(new IntegerAnimal(0, Animal.generateAnimalList()));
+        animalWithNumberList.add(new IntegerAnimal(0, Animal.generateAnimalList()));
+        animalWithNumberList.add(new IntegerAnimal(0, Animal.generateAnimalList()));
+        animalWithNumberList.add(new IntegerAnimal(0, Animal.generateAnimalList()));
 
         // Result: 4
         System.out.println(animalWithNumberList.stream()
-                .map(AnimalWithNumber::getAnimalList)
+                .map(IntegerAnimal::getAnimalList)
                 .collect(Collectors.toList())
                 .size());
     }
@@ -114,8 +114,8 @@ public class LambdaPlayground {
     public static void main(String[] args) {
 //        playExtractListOfFieldFromListOfStruct();
 //        sortWithLambdaExpression();
-//        sortByBooleanField();
+        sortByBooleanField();
 //        uniquifyListByIdWithLambda();
-        countSublistInList();
+//        countSublistInList();
     }
 }
