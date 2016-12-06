@@ -1,6 +1,6 @@
 package com.moflying.playground;
 
-import com.moflying.playground.animals.Animal;
+import com.moflying.playground.entities.animals.Animal;
 
 import java.util.ArrayList;
 import java.util.Arrays;

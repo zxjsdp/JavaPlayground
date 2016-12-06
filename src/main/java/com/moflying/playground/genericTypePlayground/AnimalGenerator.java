@@ -1,6 +1,6 @@
 package com.moflying.playground.genericTypePlayground;
 
-import com.moflying.playground.animals.Animal;
+import com.moflying.playground.entities.animals.Animal;
 import com.moflying.playground.entities.Gender;
 import javafx.scene.paint.Color;
 

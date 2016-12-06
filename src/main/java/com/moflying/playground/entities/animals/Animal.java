@@ -1,4 +1,4 @@
-package com.moflying.playground.animals;
+package com.moflying.playground.entities.animals;
 
 
 import com.moflying.playground.entities.Gender;

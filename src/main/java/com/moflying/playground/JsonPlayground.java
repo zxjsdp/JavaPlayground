@@ -1,8 +1,9 @@
 package com.moflying.playground;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.moflying.playground.animals.Animal;
 import com.moflying.playground.entities.FoodSalesInfo;
+import com.moflying.playground.entities.animals.Animal;
+import com.moflying.playground.entities.uncategorized.AuthCodeDetail;
 import com.moflying.playground.utils.JsonUtil;
 import com.moflying.playground.utils.StringUtil;
 
@@ -107,10 +108,46 @@ public class JsonPlayground {
         System.out.println("Result 3: " + JsonUtil.write(animal));
     }
 
+    /**
+     * 从 JSON 中解析复杂嵌套结构体
+     */
+    private static void parseComplexJsonString() {
+        String complexStructJsonString =
+                "[{\"authCode\":\"QUERY_SUBSIDY_CEILING\",\"authRequestList\":[{\"requestName\":" +
+                        "\"pcd.marketing.xy.service.subsidy.SubsidyRulesService.getSubsidyRules\"," +
+                        "\"authParamList\":[]},{\"requestName\":\"pcd.marketing.xy.service.subsidy." +
+                        "SubsidyRulesService.getSubsidyRulesCount\",\"authParamList\":[]}]}]";
+
+        try {
+            List<AuthCodeDetail> authCodeDetailList = JsonUtil.readList(complexStructJsonString, AuthCodeDetail.class);
+            System.out.println(JsonUtil.write(authCodeDetailList));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    /**
+     * 尝试解析字符串中的整数列表
+     */
+    private static void parseIntegerListJson() {
+        String integerListString = "[1111111,2222222,3333333]";
+        try {
+            List<Integer> result =
+                    JsonUtil.read(integerListString, new TypeReference<List<Integer>>() {});
+
+            // Result: [1111111, 2222222, 3333333]
+            System.out.println(result);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
     public static void main(String[] args) {
 //        parseJsonMap();
 //        parseJsonList1();
 //        parseJsonList2();
-        playParseEmptyListOrObject();
+//        playParseEmptyListOrObject();
+        parseComplexJsonString();
+//        parseIntegerListJson();
     }
 }

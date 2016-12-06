@@ -1,6 +1,8 @@
 package com.moflying.playground;
 
-import com.moflying.playground.animals.Animal;
+import com.moflying.playground.entities.animals.Animal;
+import com.moflying.playground.entities.animals.AnimalWithNumber;
+import com.moflying.playground.entities.animals.TrueAnimal;
 import com.moflying.playground.entities.Gender;
 import javafx.scene.paint.Color;
 
@@ -37,29 +39,10 @@ public class LambdaPlayground {
         System.out.println(animalList);
     }
 
+    /**
+     * 根据结构体中布尔型字段排序的顺序
+     */
     private static void sortByBooleanField() {
-        class TrueAnimal extends Animal {
-            private Boolean isTrueAnimal;
-
-            public TrueAnimal(int id, String name, Gender gender, Color color, Boolean isTrueAnimal) {
-                super(id, name, gender, color);
-                this.isTrueAnimal = isTrueAnimal;
-            }
-
-            public Boolean getTrueAnimal() {
-                return isTrueAnimal;
-            }
-
-            public void setTrueAnimal(Boolean trueAnimal) {
-                isTrueAnimal = trueAnimal;
-            }
-
-            @Override
-            public String toString() {
-                return "\n" + "TrueAnimal: " + this.getTrueAnimal();
-            }
-        }
-
         List<TrueAnimal> animalList = Arrays.asList(
                 new TrueAnimal(0, "0", Gender.FEMAIL, Color.ALICEBLUE, true),
                 new TrueAnimal(1, "1", Gender.FEMAIL, Color.AQUA, false),
@@ -70,8 +53,16 @@ public class LambdaPlayground {
         //  TrueAnimal: false,
         //  TrueAnimal: true,
         //  TrueAnimal: true]
-        List<TrueAnimal> falseAnimalsFirstList = animalList.stream()
+        List<TrueAnimal> falseAnimalsFirstList1 = animalList.stream()
                 .sorted((a1, a2) -> Boolean.compare(a1.getTrueAnimal(), a2.getTrueAnimal()))
+                .collect(Collectors.toList());
+
+        // [TrueAnimal: false,
+        //  TrueAnimal: false,
+        //  TrueAnimal: true,
+        //  TrueAnimal: true]
+        List<TrueAnimal> falseAnimalsFirstList2 = animalList.stream()
+                .sorted(Comparator.comparing(TrueAnimal::getTrueAnimal))
                 .collect(Collectors.toList());
 
         // [TrueAnimal: true,
@@ -82,7 +73,8 @@ public class LambdaPlayground {
                 .sorted((a1, a2) -> Boolean.compare(a2.getTrueAnimal(), a1.getTrueAnimal()))
                 .collect(Collectors.toList());
 
-        System.out.println(falseAnimalsFirstList);
+        System.out.println(falseAnimalsFirstList1);
+        System.out.println(falseAnimalsFirstList2);
         System.out.println(trueAnimalsFirstList);
     }
 
@@ -102,10 +94,28 @@ public class LambdaPlayground {
         System.out.println(uniqueAnimalList.size());
     }
 
+    /**
+     * 获取结构体中某个列表类型对象的列表数目
+     */
+    private static void countSublistInList() {
+        List<AnimalWithNumber> animalWithNumberList = new ArrayList<>();
+        animalWithNumberList.add(new AnimalWithNumber(0, Animal.generateAnimalList()));
+        animalWithNumberList.add(new AnimalWithNumber(0, Animal.generateAnimalList()));
+        animalWithNumberList.add(new AnimalWithNumber(0, Animal.generateAnimalList()));
+        animalWithNumberList.add(new AnimalWithNumber(0, Animal.generateAnimalList()));
+
+        // Result: 4
+        System.out.println(animalWithNumberList.stream()
+                .map(AnimalWithNumber::getAnimalList)
+                .collect(Collectors.toList())
+                .size());
+    }
+
     public static void main(String[] args) {
-        playExtractListOfFieldFromListOfStruct();
+//        playExtractListOfFieldFromListOfStruct();
 //        sortWithLambdaExpression();
-//        uniquifyListByIdWithLambda();
 //        sortByBooleanField();
+//        uniquifyListByIdWithLambda();
+        countSublistInList();
     }
 }

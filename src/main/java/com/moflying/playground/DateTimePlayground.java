@@ -118,10 +118,14 @@ public class DateTimePlayground {
         LocalDate endDate = LocalDate.parse("2016-10-05");
         System.out.printf("Start Date: %s; End Date: %s.\n", startDate, endDate);
 
-        // 5
+        //  5 (recommended! use Math.abs)
+        Long absDaysBetween3 = Math.abs(ChronoUnit.DAYS.between(endDate, startDate));
+        //  5 (maybe wrong)
         Long daysBetween1 = ChronoUnit.DAYS.between(startDate, endDate);
-        // -5
+        // -5 (maybe wrong)
         Long daysBetween2 = ChronoUnit.DAYS.between(endDate, startDate);
+
+        System.out.printf("Abs Days between %s and %s is %d.\n", endDate, startDate, absDaysBetween3);
         System.out.printf("Days between %s and %s is %d.\n", startDate, endDate, daysBetween1);
         System.out.printf("Days between %s and %s is %d.\n", endDate, startDate, daysBetween2);
     }

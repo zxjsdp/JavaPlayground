@@ -1,6 +1,6 @@
 package com.moflying.playground;
 
-import com.moflying.playground.animals.Animal;
+import com.moflying.playground.entities.animals.Animal;
 import com.moflying.playground.entities.Gender;
 
 import java.time.LocalDate;
@@ -10,7 +10,6 @@ import java.util.List;
 
 public class MockitoPlayground {
     public static void playWithMockito() {
-
         List<Animal> animalList = new ArrayList<Animal>();
 //        animalList.sort((animal1, animal2) -> animal1.getName().compareTo(animal2.getName()));
         Animal animal = new Animal();
