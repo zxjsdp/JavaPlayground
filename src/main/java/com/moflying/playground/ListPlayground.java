@@ -1,5 +1,6 @@
 package com.moflying.playground;
 
+import com.google.common.collect.Lists;
 import com.moflying.playground.entities.animals.Animal;
 
 import java.util.ArrayList;
@@ -88,10 +89,34 @@ public class ListPlayground {
         System.out.println(out3);
     }
 
+    /**
+     * 尝试将一个大的列表以某个大小分割成多个小列表
+     */
+    private static void playListChunks() {
+        List<Integer> bigList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+
+        List<List<Integer>> chunksOne = Lists.partition(bigList, 5);
+        // Result: [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]]
+        System.out.println(chunksOne);
+
+        List<List<Integer>> chunksTwo = Lists.partition(bigList, 10);
+        // Result: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [11, 12, 13, 14, 15]]
+        System.out.println(chunksTwo);
+
+        List<List<Integer>> chunksThree = Lists.partition(bigList, 20);
+        // Result: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]]
+        System.out.println(chunksThree);
+
+        List<List<Integer>> chunksFour = Lists.partition(bigList, 1);
+        // Result: [[1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14], [15]]
+        System.out.println(chunksFour);
+    }
+
     public static void main(String[] args) {
 //        playListHelloWorld();
 //        playWithAbstractList();
 //        getSubList();
-        playListIntersection();
+//        playListIntersection();
+        playListChunks();
     }
 }

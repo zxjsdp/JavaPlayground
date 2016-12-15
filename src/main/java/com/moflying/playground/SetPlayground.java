@@ -33,8 +33,29 @@ public class SetPlayground {
         }
     }
 
+    /**
+     * 尝试从 Set 中移除不存在的元素
+     */
+    private static void removeNonExistsElementFromSet() {
+        Set<Integer> someSet = new HashSet<>(Arrays.asList(1, 2, 3));
+
+        Integer nonExistsInteger = 4;
+        someSet.remove(nonExistsInteger);
+        // Result: [1, 2, 3]
+        System.out.println(someSet);
+
+        someSet.remove(2);
+        // Result: [1, 3]
+        System.out.println(someSet);
+
+        someSet.remove(2);
+        // Result: [1, 3]
+        System.out.println(someSet);
+    }
+
     public static void main(String[] args) {
 //        initializeSetFromArray();
-        initSetFromNullList();
+//        initSetFromNullList();
+        removeNonExistsElementFromSet();
     }
 }
