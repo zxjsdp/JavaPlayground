@@ -28,11 +28,11 @@ public class LambdaPlayground {
      */
     private static void sortWithLambdaExpression() {
         List<Animal> animalList = Arrays.asList(
-                new Animal(2, "2", Gender.FEMAIL, Color.BLACK),
-                new Animal(5, "5", Gender.FEMAIL, Color.BLACK),
-                new Animal(1, "1", Gender.FEMAIL, Color.BLACK),
-                new Animal(7, "7", Gender.FEMAIL, Color.BLACK),
-                new Animal(4, "4", Gender.FEMAIL, Color.BLACK)
+                new Animal(2, "2", Gender.FEMALE, Color.BLACK),
+                new Animal(5, "5", Gender.FEMALE, Color.BLACK),
+                new Animal(1, "1", Gender.FEMALE, Color.BLACK),
+                new Animal(7, "7", Gender.FEMALE, Color.BLACK),
+                new Animal(4, "4", Gender.FEMALE, Color.BLACK)
         );
 
         animalList = animalList.stream().sorted((a, b) -> (a.getName().compareTo(b.getName()))).collect(Collectors.toList());

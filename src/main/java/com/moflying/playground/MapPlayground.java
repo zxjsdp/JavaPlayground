@@ -157,7 +157,7 @@ public class MapPlayground {
         System.out.println(animalMap.containsKey(1));
         // result: false
         System.out.println(animalMap.containsKey(10));
-        // result: Animal    ID: 1, Name: Animal1, Gender: FEMAIL, Color: 0x008000ff
+        // result: Animal    ID: 1, Name: Animal1, Gender: FEMALE, Color: 0x008000ff
         System.out.println(animalMap.get(1));
         // result: null
         System.out.println(animalMap.get(10));

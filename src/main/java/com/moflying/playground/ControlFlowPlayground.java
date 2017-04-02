@@ -15,7 +15,7 @@ public class ControlFlowPlayground {
                 case MALE:
                     System.out.println("MALE!");
                     break;
-                case FEMAIL:
+                case FEMALE:
                     System.out.println("FEMALE!");
                     break;
                 default:

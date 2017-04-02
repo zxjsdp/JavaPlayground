@@ -8,7 +8,7 @@ public class EnumPlayground {
         // Result: true
         System.out.println((EnumUtil.enumContains(Gender.class, Gender.MALE)));
         // Result: true
-        System.out.println((EnumUtil.enumContains(Gender.class, Gender.FEMAIL)));
+        System.out.println((EnumUtil.enumContains(Gender.class, Gender.FEMALE)));
         // Result: false
         System.out.println((EnumUtil.enumContains(Gender.class, null)));
         // Result: false

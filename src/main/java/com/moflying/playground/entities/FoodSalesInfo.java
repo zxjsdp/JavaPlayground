@@ -1,6 +1,8 @@
 package com.moflying.playground.entities;
 
-public class FoodSalesInfo {
+import java.io.Serializable;
+
+public class FoodSalesInfo implements Serializable {
     /**
      * 美食 ID
      */
@@ -12,12 +14,12 @@ public class FoodSalesInfo {
     /**
      * 美食销量
      */
-    private Integer totalSalesVolumn;
+    private Integer totalSalesVolume;
 
-    public FoodSalesInfo(Integer foodId, String foodName, Integer totalSalesVolumn) {
+    public FoodSalesInfo(Integer foodId, String foodName, Integer totalSalesVolume) {
         this.foodId = foodId;
         this.foodName = foodName;
-        this.totalSalesVolumn = totalSalesVolumn;
+        this.totalSalesVolume = totalSalesVolume;
     }
 
     public Integer getFoodId() {
@@ -36,11 +38,20 @@ public class FoodSalesInfo {
         this.foodName = foodName;
     }
 
-    public Integer getTotalSalesVolumn() {
-        return totalSalesVolumn;
+    public Integer getTotalSalesVolume() {
+        return totalSalesVolume;
     }
 
-    public void setTotalSalesVolumn(Integer totalSalesVolumn) {
-        this.totalSalesVolumn = totalSalesVolumn;
+    public void setTotalSalesVolume(Integer totalSalesVolume) {
+        this.totalSalesVolume = totalSalesVolume;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodSalesInfo{" +
+                "foodId=" + foodId +
+                ", foodName='" + foodName + '\'' +
+                ", totalSalesVolume=" + totalSalesVolume +
+                '}';
     }
 }

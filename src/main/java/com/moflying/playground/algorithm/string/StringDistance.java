@@ -1,12 +1,6 @@
 package com.moflying.playground.algorithm.string;
 
-import com.moflying.playground.algorithm.string.algorithmUtil.StringCleaner;
-import com.moflying.playground.algorithm.string.entity.StringComparison;
-import com.moflying.playground.utils.CollectionUtil;
 import info.debatty.java.stringsimilarity.*;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class StringDistance {
     private static final String STR_A = "谷田稻香（真北路）";
@@ -106,58 +100,7 @@ public class StringDistance {
         return sorensenDice.distance(str1, str2);
     }
 
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    private static void checkAlgorithms(String a, String b) {
-        a = StringCleaner.removeContentsInParentheses(a);
-        b = StringCleaner.removeContentsInParentheses(b);
-
-        a = StringCleaner.toLowerCase(a);
-        b = StringCleaner.toLowerCase(b);
-
-        System.out.println("--------------------------------------------------");
-        System.out.println(a);
-        System.out.println(b);
-
-        System.out.printf("Levenshtein:                          %s\n", checkLevenshteinDistance(a, b));
-        System.out.printf("NormalizedLevenshtein:   (Normalized) %s\n", checkNormalizedLevenshteinDistance(a, b));
-        System.out.printf("WeightedLevenshtein:                  %s\n", checkWeightedLevenshteinDistance(a, b));
-        System.out.printf("DamerauLevenshtein:                   %s\n", checkDamerauLevenshteinDistance(a, b));
-        System.out.printf("OptimalStringAlignment:               %s\n", checkOptimalStringAlignmentDistance(a, b));
-        System.out.printf("JaroWinkler:             (Normalized) %s\n", checkJaroWinklerDistance(a, b));
-        System.out.printf("LongestCommonSubsequence:             %s\n", checkLongestCommonSubsequence(a, b));
-        System.out.printf("MetricLCS:               (Normalized) %s\n", checkMetricLCS(a, b));
-        System.out.printf("NGram:                   (Normalized) %s\n", checkNGram(a, b));
-        System.out.printf("QGram:                                %s\n", checkQGram(a, b));
-        System.out.printf("Cosine:                  (Normalized) %s\n", checkCosineDistance(a, b));
-        System.out.printf("Jaccard:                 (Normalized) %s\n", checkJaccard(a, b));
-        System.out.printf("SorensenDiceCoefficient: (Normalized) %s\n", checkSorensenDiceCoefficient(a, b));
-    }
-
-    private static void checkMultipleAlgorithms(List<StringComparison> stringComparisonList) {
-        if (CollectionUtil.isBlank(stringComparisonList)) {
-            return;
-        }
-
-        stringComparisonList.forEach(stringComparison ->
-            checkAlgorithms(stringComparison.getStr1(), stringComparison.getStr2())
-        );
-    }
-
     public static void main(String[] args) {
-        List<StringComparison> stringComparisonList = Arrays.asList(
-//                new StringComparison(STR_A, STR_B),
-                new StringComparison("兰州正宗牛肉拉面（轻纺路店）", "兰州拉面"),
-                new StringComparison("兰州正宗拉面", "兰州拉面"),
-                new StringComparison("哆哆呀简餐", "哆哆呀简餐美味"),
-                new StringComparison("成都汤王牛肉粉店（武汉路店）", "汤王牛肉米粉"),
-                new StringComparison("Uncle`s Pizza", "UNCLE'S PIZZA"),
-                new StringComparison("老鸭粉丝", "汤王牛肉米粉"),
-                new StringComparison("哆哆呀简餐", "汤王牛肉米粉"),
-                new StringComparison("CONAIR", "AIRCON")
-        );
 
-        checkMultipleAlgorithms(stringComparisonList);
     }
 }

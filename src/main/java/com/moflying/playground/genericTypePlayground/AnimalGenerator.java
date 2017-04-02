@@ -8,11 +8,11 @@ class AnimalGenerator implements MyGenerator<Animal> {
     private Integer index = 0;
 
     private Animal[] animals = new Animal[] {
-            new Animal(2, "2", Gender.FEMAIL, Color.BLACK),
+            new Animal(2, "2", Gender.FEMALE, Color.BLACK),
             new Animal(5, "5", Gender.MALE, Color.RED),
-            new Animal(1, "1", Gender.FEMAIL, Color.GRAY),
+            new Animal(1, "1", Gender.FEMALE, Color.GRAY),
             new Animal(7, "7", Gender.MALE, Color.GREEN),
-            new Animal(4, "4", Gender.FEMAIL, Color.BLUE)
+            new Animal(4, "4", Gender.FEMALE, Color.BLUE)
     };
 
     @Override

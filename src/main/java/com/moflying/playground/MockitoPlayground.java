@@ -15,7 +15,7 @@ public class MockitoPlayground {
         Animal animal = new Animal();
         animal.setId(2);
         animal.setColor(null);
-        animal.setGender(Gender.FEMAIL);
+        animal.setGender(Gender.FEMALE);
         animal.setName("Tom");
 
         Long days = ChronoUnit.DAYS.between(LocalDate.parse("2016-05-05"), LocalDate.parse("2016-05-06"));

@@ -32,11 +32,11 @@ public class Animal {
      */
     public static List<Animal> generateAnimalList() {
         List<Animal> animalList = Arrays.asList(
-                new Animal(2, "Animal2", Gender.FEMAIL, Color.BLACK),
+                new Animal(2, "Animal2", Gender.FEMALE, Color.BLACK),
                 new Animal(5, "Animal5", Gender.MALE, Color.RED),
-                new Animal(1, "Animal1", Gender.FEMAIL, Color.GREEN),
+                new Animal(1, "Animal1", Gender.FEMALE, Color.GREEN),
                 new Animal(7, "Animal7", Gender.MALE, Color.GRAY),
-                new Animal(4, "Animal4", Gender.FEMAIL, Color.BLUE)
+                new Animal(4, "Animal4", Gender.FEMALE, Color.BLUE)
         );
         return animalList;
     }
