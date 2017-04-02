@@ -112,11 +112,20 @@ public class ListPlayground {
         System.out.println(chunksFour);
     }
 
+    private static void playListIndex() {
+        List<Integer> l = Arrays.asList(1);
+        System.out.println(l.get(l.size() - 1));
+        // Exception in thread "main" java.lang.IllegalArgumentException: fromIndex(0) > toIndex(-1)
+        System.out.println(l.subList(0, l.size() - 1));
+        System.out.println(l.subList(0, l.size() - 2));
+    }
+
     public static void main(String[] args) {
 //        playListHelloWorld();
 //        playWithAbstractList();
 //        getSubList();
 //        playListIntersection();
-        playListChunks();
+//        playListChunks();
+        playListIndex();
     }
 }
