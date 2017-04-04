@@ -1,6 +1,7 @@
 package com.moflying.playground;
 
 import com.moflying.playground.entities.animals.Animal;
+import org.apache.commons.lang3.StringUtils;
 
 public class VerifierPlayground {
     /**
@@ -42,7 +43,32 @@ public class VerifierPlayground {
         return true;
     }
 
-    public static void main(String[] args) {
+    /**
+     * 是否所有元素均为非 null 的、有内容的字符串
+     * @param params 元素列表
+     * @return 是否所有元素均为非 null 的、有内容的字符串
+     */
+    private static boolean isAllValidNonBlankString(Object... params) {
+        if (null == params) {
+            return false;
+        }
+        try {
+            for (Object o : params) {
+                if (null == o || !(o instanceof String) || StringUtils.isEmpty(o.toString()))  {
+                    return false;
+                }
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Test methods
+    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    private static void testIsAnyNull() {
         // true
         System.out.println(isAnyNull(null));
         // true
@@ -54,7 +80,9 @@ public class VerifierPlayground {
         } catch (NullPointerException e) {
             System.out.println(e);
         }
+    }
 
+    private static void testIsAllPositiveInteger() {
         // true
         System.out.println(isAllPositiveInteger(2, 4));
         // false
@@ -63,5 +91,27 @@ public class VerifierPlayground {
         System.out.println(isAllPositiveInteger(2, 1.4));
         // false
         System.out.println(isAllPositiveInteger(2.0, 1));
+    }
+
+    private static void testIsAllValidNonBlankString() {
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // isAllValidNonblankString
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        String nullString = null;
+        String blankString = "";
+        String s = "hello";
+
+        System.out.println(isAllValidNonBlankString(s)); // true
+        System.out.println(isAllValidNonBlankString(nullString)); // false
+        System.out.println(isAllValidNonBlankString(blankString)); // false
+        System.out.println(isAllValidNonBlankString(s, nullString)); // false
+        System.out.println(isAllValidNonBlankString(s, blankString)); // false
+        System.out.println(isAllValidNonBlankString(nullString, blankString)); // false
+    }
+
+    public static void main(String[] args) {
+//        testIsAnyNull();
+//        testIsAllPositiveInteger();
+        testIsAllValidNonBlankString();
     }
 }
