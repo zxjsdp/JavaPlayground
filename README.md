@@ -25,3 +25,4 @@ My Java snippets and best practices, including some usages which are easily conf
 - [SetPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/SetPlayground.java)
 - [StringPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/StringPlayground.java)
 - [SysPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/SysPlayground.java)
+- [VerifierPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/VerifierPlayground.java)
