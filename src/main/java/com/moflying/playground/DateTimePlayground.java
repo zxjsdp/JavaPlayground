@@ -2,6 +2,7 @@ package com.moflying.playground;
 
 import com.google.common.base.Strings;
 
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static java.time.temporal.ChronoUnit.SECONDS;
@@ -164,6 +166,27 @@ public class DateTimePlayground {
         System.out.println(time);
     }
 
+    /**
+     * 测试 LocalDateTime.now()，LocalDate.now() 以及 LocalTime.now() 的展示
+     */
+    private static void localDateTimeNowDisplay() {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        LocalDate localDate = LocalDate.now();
+        LocalTime localTime = LocalTime.now();
+
+        // 2017-04-07T22:42:27.365
+        System.out.println(localDateTime);
+        // 2017-04-07
+        System.out.println(localDate);
+        // 22:42:27.366
+        System.out.println(localTime);
+
+        // 2017-04-07 22:42:27.441
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date()));
+        // Recommended: 2017-04-07 22:42:27.441
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
+    }
+
     public static void main(String[] args) {
 //        parseDateTime();
 //        getStartTimeAndEndTimeOfDay();
@@ -171,6 +194,7 @@ public class DateTimePlayground {
 //        playCopyLocalDate();
 //        getDaysBetweenTwoDates();
 //        generateLocalDateWithinRange();
-        localDateTimeToLocalDateOrLocalTime();
+//        localDateTimeToLocalDateOrLocalTime();
+        localDateTimeNowDisplay();
     }
 }
