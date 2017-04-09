@@ -9,7 +9,7 @@ public class CollectionUtil {
      * @param collection A collection
      * @return is null or empty
      */
-    public static Boolean isBlank(Collection collection) {
+    public static Boolean isBlank(final Collection<?> collection) {
         return null == collection || collection.isEmpty();
     }
 
@@ -18,7 +18,7 @@ public class CollectionUtil {
      * @param map A map
      * @return is null or empty
      */
-    public static Boolean isBlank(Map map) {
+    public static Boolean isBlank(final Map<?, ?> map) {
         return null == map || map.isEmpty();
     }
 }
