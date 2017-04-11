@@ -89,6 +89,14 @@ public class StringPlayground {
         System.out.println(localTypeString.contains("洁白如雪"));
     }
 
+    /**
+     * 使用 Object[] 进行 String.format
+     */
+    private static void playStringFormatWithObjectArray() {
+        Object[] objects = new String[]{"Hello", "World"};
+        System.out.println(String.format("First: %s, second: %s\n", objects));
+    }
+
     public static void main(String[] args) {
 //        stringToCharListPlayground();
 //        System.out.println(stringContainsAnyChar(STRING_TO_CHECK, SPECIAL_CHARS));
@@ -96,6 +104,7 @@ public class StringPlayground {
 //        stringValueOf();
 //        playStringFormatNullParameter();
 //        playStringComparison();
-        stringContains();
+//        stringContains();
+        playStringFormatWithObjectArray();
     }
 }
