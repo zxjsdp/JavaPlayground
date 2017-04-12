@@ -97,6 +97,17 @@ public class StringPlayground {
         System.out.println(String.format("First: %s, second: %s\n", objects));
     }
 
+    /**
+     * 使用 String[] 作为参数
+     * @param strings String[]
+     */
+    private static void playVarArgs(String... strings) {
+        // hello
+        System.out.println(strings[0]);
+        // world
+        System.out.println(strings[1]);
+    }
+
     public static void main(String[] args) {
 //        stringToCharListPlayground();
 //        System.out.println(stringContainsAnyChar(STRING_TO_CHECK, SPECIAL_CHARS));
@@ -105,6 +116,7 @@ public class StringPlayground {
 //        playStringFormatNullParameter();
 //        playStringComparison();
 //        stringContains();
-        playStringFormatWithObjectArray();
+//        playStringFormatWithObjectArray();
+        playVarArgs(new String[]{"hello", "world"});
     }
 }
