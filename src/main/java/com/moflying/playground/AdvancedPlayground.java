@@ -26,7 +26,26 @@ public class AdvancedPlayground {
         }
     }
 
+    /**
+     * Play with reference
+     */
+    private static void playReference() {
+        Animal animal = Animal.generateAnimalList().get(0);
+        // FEMALE
+        System.out.println(animal.getGender());
+
+        Gender gender = animal.getGender();
+
+        animal.setGender(Gender.MALE);
+        // MALE
+        System.out.println(animal.getGender());
+
+        // FEMALE
+        System.out.println(gender);
+    }
+
     public static void main(String[] args) {
-        iterateAllFieldsInClass();
+//        iterateAllFieldsInClass();
+        playReference();
     }
 }
