@@ -111,11 +111,25 @@ public class LambdaPlayground {
                 .size());
     }
 
+    private static void playWithMapLambda() {
+        List<Animal> animals = Animal.generateAnimalList();
+        Map<Integer, List<Animal>> animalMap = new HashMap<>();
+        animalMap.put(1, animals);
+        animalMap.put(2, animals);
+        animalMap.put(3, animals);
+
+        animalMap.forEach((index, valueAnimals) -> {
+            System.out.println(index);
+            System.out.println(valueAnimals);
+        });
+    }
+
     public static void main(String[] args) {
 //        playExtractListOfFieldFromListOfStruct();
 //        sortWithLambdaExpression();
-        sortByBooleanField();
+//        sortByBooleanField();
 //        uniquifyListByIdWithLambda();
 //        countSublistInList();
+        playWithMapLambda();
     }
 }
