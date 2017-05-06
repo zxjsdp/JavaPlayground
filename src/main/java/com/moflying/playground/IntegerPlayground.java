@@ -20,7 +20,40 @@ public class IntegerPlayground {
         }
     }
 
+    private void test() {
+        A a = new A();
+        B b = new B();
+        a.setI(b.getI());
+        System.out.println(b.getI());
+    }
+
     public static void main(String[] args) {
-        tryToParseIntFromDoubleStr();
+//        tryToParseIntFromDoubleStr();
+        IntegerPlayground playground = new IntegerPlayground();
+        playground.test();
+    }
+
+    private class A {
+        private Integer i;
+
+        public Integer getI() {
+            return i;
+        }
+
+        public void setI(Integer i) {
+            this.i = i;
+        }
+    }
+
+    private class B {
+        private int i;
+
+        public int getI() {
+            return i;
+        }
+
+        public void setI(int i) {
+            this.i = i;
+        }
     }
 }
