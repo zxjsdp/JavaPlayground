@@ -1,6 +1,7 @@
 package com.moflying.playground;
 
 import com.google.common.base.Strings;
+import org.apache.tools.ant.util.DateUtils;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -198,11 +199,20 @@ public class DateTimePlayground {
         } catch (Exception e) {
             System.out.println(e);
         }
-        long elapsedTime = System.nanoTime() - start;  // Nano seconds
-        System.out.println("Nano seconds: " + elapsedTime);
+        long elapsedNanoSeconds = System.nanoTime() - start;  // Nano seconds
+        System.out.println("Nano seconds: " + elapsedNanoSeconds);
 
-        long elapsedMilliSeconds = TimeUnit.NANOSECONDS.toMillis(elapsedTime); // Milli seconds
+        long elapsedMilliSeconds = TimeUnit.NANOSECONDS.toMillis(elapsedNanoSeconds); // Milli seconds
         System.out.println("Milli seconds: " + elapsedMilliSeconds);
+    }
+
+    /**
+     * Format elapsed time
+     */
+    private static void playElapsedTimeFormatting() {
+        long milliSeconds = 23000000;
+        String formattedElapsedTimeInfo = DateUtils.formatElapsedTime(milliSeconds);
+        System.out.println(formattedElapsedTimeInfo);
     }
 
     public static void main(String[] args) {
@@ -214,6 +224,7 @@ public class DateTimePlayground {
 //        generateLocalDateWithinRange();
 //        localDateTimeToLocalDateOrLocalTime();
 //        localDateTimeNowDisplay();
-        playTimeElapsed();
+//        playTimeElapsed();
+        playElapsedTimeFormatting();
     }
 }
