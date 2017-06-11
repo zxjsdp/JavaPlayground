@@ -13,6 +13,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static java.time.temporal.ChronoUnit.SECONDS;
 
@@ -187,6 +188,23 @@ public class DateTimePlayground {
         System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")));
     }
 
+    /**
+     * Get time elapsed (获取时间间隔)
+     */
+    private static void playTimeElapsed() {
+        long start = System.nanoTime();
+        try {
+            Thread.sleep(2300);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        long elapsedTime = System.nanoTime() - start;  // Nano seconds
+        System.out.println("Nano seconds: " + elapsedTime);
+
+        long elapsedMilliSeconds = TimeUnit.NANOSECONDS.toMillis(elapsedTime); // Milli seconds
+        System.out.println("Milli seconds: " + elapsedMilliSeconds);
+    }
+
     public static void main(String[] args) {
 //        parseDateTime();
 //        getStartTimeAndEndTimeOfDay();
@@ -195,6 +213,7 @@ public class DateTimePlayground {
 //        getDaysBetweenTwoDates();
 //        generateLocalDateWithinRange();
 //        localDateTimeToLocalDateOrLocalTime();
-        localDateTimeNowDisplay();
+//        localDateTimeNowDisplay();
+        playTimeElapsed();
     }
 }
