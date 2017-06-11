@@ -177,12 +177,25 @@ public class MapPlayground {
         System.out.println(aMap);
     }
 
+    /**
+     * Try to get null from map
+     */
+    private static void playGetNullFromMap() {
+        Map<Long, Long> testMap = new HashMap<>();
+        System.out.println(testMap.get(null));
+
+        if (null == null) {
+            System.out.println("111");
+        }
+    }
+
     public static void main(String[] args) {
 //        playMapHelloWorld();
 //        playListToMapWithTraditionalWay();
 //        playListToMapWithLambda();
 //        playGetNonExistKey();
 //        playIterateOverMap();
-        playPutDuplicateKeyToMap();
+//        playPutDuplicateKeyToMap();
+        playGetNullFromMap();
     }
 }
