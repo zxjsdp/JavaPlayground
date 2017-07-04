@@ -124,12 +124,29 @@ public class LambdaPlayground {
         });
     }
 
+    private static void playStreamToMapWithDuplicateKeys() {
+        List<Animal> animals = Animal.generateAnimalList();
+        animals.get(0).setId(1);
+        animals.get(2).setName("animal xxx");
+
+        try {
+            System.out.println(animals.stream().collect(Collectors.toMap(Animal::getId, a -> a)));
+        } catch (IllegalStateException e) {
+            System.out.println(e);
+        }
+
+        Map<Integer, Animal> animalMap = animals.stream().collect(Collectors.toMap(Animal::getId, a -> a, (a, b) -> b));
+        System.out.println(animalMap.size());
+        System.out.println(animalMap.get(1));
+    }
+
     public static void main(String[] args) {
 //        playExtractListOfFieldFromListOfStruct();
 //        sortWithLambdaExpression();
 //        sortByBooleanField();
 //        uniquifyListByIdWithLambda();
 //        countSublistInList();
-        playWithMapLambda();
+//        playWithMapLambda();
+        playStreamToMapWithDuplicateKeys();
     }
 }
