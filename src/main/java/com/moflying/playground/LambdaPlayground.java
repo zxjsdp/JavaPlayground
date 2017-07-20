@@ -140,6 +140,16 @@ public class LambdaPlayground {
         System.out.println(animalMap.get(1));
     }
 
+    private static void playComparatorSortForLongValue() {
+        List<Animal> animals = Animal.generateAnimalList();
+
+        animals = animals.stream()
+                .sorted(Comparator.comparingLong(Animal::getId))
+                .collect(Collectors.toList());
+
+        System.out.println(animals);
+    }
+
     public static void main(String[] args) {
 //        playExtractListOfFieldFromListOfStruct();
 //        sortWithLambdaExpression();
@@ -147,6 +157,7 @@ public class LambdaPlayground {
 //        uniquifyListByIdWithLambda();
 //        countSublistInList();
 //        playWithMapLambda();
-        playStreamToMapWithDuplicateKeys();
+//        playStreamToMapWithDuplicateKeys();
+        playComparatorSortForLongValue();
     }
 }
