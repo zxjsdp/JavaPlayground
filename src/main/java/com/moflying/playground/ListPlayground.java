@@ -2,10 +2,14 @@ package com.moflying.playground;
 
 import com.google.common.collect.Lists;
 import com.moflying.playground.entities.animals.Animal;
+import org.apache.tools.ant.util.DateUtils;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ListPlayground {
 
@@ -120,12 +124,36 @@ public class ListPlayground {
         System.out.println(l.subList(0, l.size() - 2));
     }
 
+    /**
+     * 测试 ArrayList 和 LinkedList 的性能
+     */
+    private static void playArrayListAndLinkedPerformance() {
+        List<Integer> arrayList = new ArrayList<>();
+        List<Integer> linkedList = new LinkedList<>();
+        int max = 1000000;
+        long startTime1 = System.nanoTime();
+        for (int i = 0; i < max; i++) {
+            arrayList.add(i);
+        }
+        long endTime1 = System.nanoTime();
+
+        long startTime2 = System.nanoTime();
+        for (int i = 0; i < max; i++) {
+            linkedList.add(i);
+        }
+        long endTime2 = System.nanoTime();
+
+        System.out.println("ArrayList:  " + (endTime1 - startTime1));
+        System.out.println("LinkedList: " + (endTime2 - startTime2));
+    }
+
     public static void main(String[] args) {
 //        playListHelloWorld();
 //        playWithAbstractList();
 //        getSubList();
 //        playListIntersection();
 //        playListChunks();
-        playListIndex();
+//        playListIndex();
+        playArrayListAndLinkedPerformance();
     }
 }
