@@ -1,6 +1,7 @@
 package com.moflying.playground;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.gson.Gson;
 import com.moflying.playground.entities.FoodSalesInfo;
 import com.moflying.playground.entities.animals.Animal;
 import com.moflying.playground.entities.uncategorized.AuthCodeDetail;
@@ -156,6 +157,20 @@ public class JsonPlayground {
         System.out.println(onlyNonNullFieldsJson);
     }
 
+    /**
+     * 仅将非 null 的字段写入 json（使用 gson）
+     */
+    private static void writeNonNullFieldsToStringWithGson() {
+        Animal animal = new Animal();
+        animal.setId(1);
+
+        Gson gson = new Gson();
+        String onlyNonNullFieldsJson = gson.toJson(animal);
+
+        // {"id":1}
+        System.out.println(onlyNonNullFieldsJson);
+    }
+
     public static void main(String[] args) {
 //        parseJsonMap();
 //        parseJsonList1();
@@ -163,6 +178,7 @@ public class JsonPlayground {
 //        playParseEmptyListOrObject();
 //        parseComplexJsonString();
 //        parseIntegerListJson();
-        writeNonNullFieldsToString();
+//        writeNonNullFieldsToString();
+        writeNonNullFieldsToStringWithGson();
     }
 }
