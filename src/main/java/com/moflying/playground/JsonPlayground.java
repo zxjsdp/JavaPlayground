@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.moflying.playground.entities.FoodSalesInfo;
 import com.moflying.playground.entities.animals.Animal;
 import com.moflying.playground.entities.uncategorized.AuthCodeDetail;
+import com.moflying.playground.utils.IgnoreNullJsonHelper;
 import com.moflying.playground.utils.JsonUtil;
 import com.moflying.playground.utils.StringUtil;
 
@@ -142,12 +143,26 @@ public class JsonPlayground {
         }
     }
 
+    /**
+     * 仅将非 null 的字段写入 json
+     */
+    private static void writeNonNullFieldsToString() {
+        Animal animal = new Animal();
+        animal.setId(1);
+
+        String onlyNonNullFieldsJson = IgnoreNullJsonHelper.writeNonNullFieldsAsString(animal);
+
+        // Result: {"id":1}
+        System.out.println(onlyNonNullFieldsJson);
+    }
+
     public static void main(String[] args) {
 //        parseJsonMap();
 //        parseJsonList1();
 //        parseJsonList2();
 //        playParseEmptyListOrObject();
-        parseComplexJsonString();
+//        parseComplexJsonString();
 //        parseIntegerListJson();
+        writeNonNullFieldsToString();
     }
 }
