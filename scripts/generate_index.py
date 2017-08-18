@@ -1,7 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""根据类自动生成 README 中的 Index."""
+"""根据类自动生成 README 中的 Index.
+
+Usage:
+
+    scripts/generate_index.py
+
+Then copy the generated markdown format index content to README.md.
+"""
 
 from __future__ import print_function
 
@@ -9,7 +16,7 @@ import re
 import os
 import sys
 
-PROJECT_PATH = '/Users/jin/Work/Eleme/GitLab/playground/'
+PROJECT_PATH = '/Users/jin/GitHub/projects/JavaPlayground/'
 README_FILE_PATH = PROJECT_PATH + 'README.md'
 PLAYGROUND_PATH = PROJECT_PATH + 'src/main/java/com/moflying/playground/'
 GITHUB_PREFIX = 'https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/'

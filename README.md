@@ -20,6 +20,7 @@ My Java snippets and best practices, including some usages which are easily conf
 - [LongPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/LongPlayground.java)
 - [MapPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/MapPlayground.java)
 - [MockitoPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/MockitoPlayground.java)
+- [ObjectPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/ObjectPlayground.java)
 - [PathPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/PathPlayground.java)
 - [ReflectionPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/ReflectionPlayground.java)
 - [RegularExpressionPlayground](https://github.com/zxjsdp/JavaPlayground/blob/master/src/main/java/com/moflying/playground/RegularExpressionPlayground.java)
