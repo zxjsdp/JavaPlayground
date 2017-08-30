@@ -150,6 +150,24 @@ public class LambdaPlayground {
         System.out.println(animals);
     }
 
+    /**
+     * Object 列表的 distinct
+     */
+    private static void objectListDistinct() {
+        List<Animal> animals = Animal.generateAnimalList();
+
+        List<Animal> duplicateAnimals = new ArrayList<>();
+        duplicateAnimals.addAll(animals);
+        duplicateAnimals.addAll(animals);
+        duplicateAnimals.addAll(animals);
+
+        // result: 15
+        System.out.println(duplicateAnimals.size());
+        // result: 5
+        System.out.println(duplicateAnimals.stream().distinct().collect(Collectors.toList()).size());
+        System.out.println(duplicateAnimals.stream().distinct().collect(Collectors.toList()));
+    }
+
     public static void main(String[] args) {
 //        playExtractListOfFieldFromListOfStruct();
 //        sortWithLambdaExpression();
@@ -158,6 +176,7 @@ public class LambdaPlayground {
 //        countSublistInList();
 //        playWithMapLambda();
 //        playStreamToMapWithDuplicateKeys();
-        playComparatorSortForLongValue();
+//        playComparatorSortForLongValue();
+        objectListDistinct();
     }
 }
