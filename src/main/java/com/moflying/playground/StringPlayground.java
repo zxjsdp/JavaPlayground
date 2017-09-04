@@ -1,5 +1,6 @@
 package com.moflying.playground;
 
+import com.google.common.base.CharMatcher;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -108,6 +109,25 @@ public class StringPlayground {
         System.out.println(strings[1]);
     }
 
+    /**
+     * 移除字符串中不可打印的字符
+     *
+     * - https://stackoverflow.com/questions/11020893/java-removing-unicode-characters
+     */
+    private static void removeNonPrintableUnicodeCharacters() {
+        String s = "11811\u2028 \t \t \t\t \b";
+        System.out.println(s + ", length: " + s.length());
+
+        String clean1 = CharMatcher.INVISIBLE.removeFrom(s);
+        System.out.println(clean1 + ", length: " + clean1.length());
+
+        String clean2 = CharMatcher.ASCII.retainFrom(s);
+        System.out.println(clean2 + ", length: " + clean2.length());
+
+        String clean3 = s.replaceAll("\\P{Print}", "");
+        System.out.println(clean3 + ", length: " + clean3.length());
+    }
+
     public static void main(String[] args) {
 //        stringToCharListPlayground();
 //        System.out.println(stringContainsAnyChar(STRING_TO_CHECK, SPECIAL_CHARS));
@@ -117,6 +137,7 @@ public class StringPlayground {
 //        playStringComparison();
 //        stringContains();
 //        playStringFormatWithObjectArray();
-        playVarArgs(new String[]{"hello", "world"});
+//        playVarArgs(new String[]{"hello", "world"});
+        removeNonPrintableUnicodeCharacters();
     }
 }
