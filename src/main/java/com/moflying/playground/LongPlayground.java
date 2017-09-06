@@ -46,7 +46,20 @@ public class LongPlayground {
         System.out.println(intNumber2);
     }
 
+    /**
+     * 尝试解析过长的数字
+     */
+    private static void parseLongNumber() {
+        try {
+            System.out.println(Long.parseLong("2016120300077000000023631881"));
+        } catch (Exception e) {
+            // Result: NumberFormatException
+            System.out.println(e);
+        }
+    }
+
     public static void main(String[] args) {
-        playConvertLongToInteger();
+//        playConvertLongToInteger();
+        parseLongNumber();
     }
 }
